@@ -23,10 +23,15 @@ public class JZ3 {
     }
 
     public static void main(String[] args) {
-        ListNode listNode = new ListNode(33);
-        listNode.next = new ListNode(44);
+        ListNode listNode1 = new ListNode(33);
+        ListNode listNode2 = new ListNode(44);
+        listNode1.next = listNode2;
+        ListNode listNode3 = new ListNode(22);
+        listNode2.next = listNode3;
+        ListNode listNode4 = new ListNode(89);
+        listNode3.next = listNode4;
         JZ3 jz3 = new JZ3();
-        ArrayList<Integer> list = jz3.printListFromTailToHead(listNode);
+        ArrayList<Integer> list = jz3.printListFromTailToHead(listNode1);
         System.out.println(list.toString());
     }
 }
