@@ -1,17 +1,31 @@
 package com.amuse.algorithm.jz;
 
 /**
- * @description: 跳台阶
- * @projectName: algorithm
- * @see: com.amuse.algorithm.jz
- * @author: 刘培振
- * @createTime: 2021/3/6 16:46
- * @version:1.0
+ * @ClassName JZ8
+ * @Description 跳台阶
+ * @Author 刘培振
+ * @Date 2021-06-28 21:47
+ * @Version 1.0
  */
 public class JZ8 {
 
+    // f(n) = f(n-1) + f(n-2)
+
+//    public int jumpFloor(int target) {
+//        if (target <= 0) {
+//            return 0;
+//        }
+//        if (target == 1) {
+//            return 1;
+//        }
+//        if (target == 2) {
+//            return 2;
+//        }
+//        return jumpFloor(target - 1) + jumpFloor(target - 2);
+//    }
+
     public int jumpFloor(int target) {
-        if (target == 0) {
+        if (target <= 0) {
             return 0;
         }
         if (target == 1) {
@@ -20,20 +34,20 @@ public class JZ8 {
         if (target == 2) {
             return 2;
         }
-        int f1 = 1;
-        int f2 = 2;
-        int fn = 0;
+        int one = 1;
+        int two = 2;
+        int sum = 0;
         for (int i = 3; i <= target; i++) {
-            fn = f1 + f2;
-            f1 = f2;
-            f2 = fn;
+            sum = one + two;
+            one = two;
+            two = sum;
         }
-        return fn;
+        return sum ;
     }
+
 
     public static void main(String[] args) {
         JZ8 jz8 = new JZ8();
-        int s = jz8.jumpFloor(4);
-        System.out.println(s);
+        System.out.println(jz8.jumpFloor(4));
     }
 }

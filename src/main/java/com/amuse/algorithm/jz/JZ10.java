@@ -1,38 +1,34 @@
 package com.amuse.algorithm.jz;
 
 /**
- * @description: 矩形覆盖
- * @projectName: algorithm
- * @see: com.amuse.algorithm.jz
- * @author: 刘培振
- * @createTime: 2021/3/6 17:25
- * @version:1.0
+ * @ClassName JZ10
+ * @Description 矩形覆盖
+ * @Author 刘培振
+ * @Date 2021-06-29 17:36
+ * @Version 1.0
  */
 public class JZ10 {
 
     public int rectCover(int target) {
-        if (target == 1) {
-            return 1;
+        if (target == 1 || target == 2) {
+            return target;
         }
-        if (target == 2) {
-            return 2;
-        }
-        int f1 = 1;
-        int f2 = 2;
-        int fn = 0;
+        int one = 1;
+        int two = 2;
+        int sum = 0;
         for (int i = 3; i <= target; i++) {
-            fn = f1 + f2;
-            f1 = f2;
-            f2 = fn;
+            sum = one + two;
+            one = two;
+            two = sum;
         }
-        return fn;
+        return sum;
     }
+
 
     public static void main(String[] args) {
         JZ10 jz10 = new JZ10();
-        int s = jz10.rectCover(4);
-
-        System.out.println(s);
+        int sum = jz10.rectCover(8);
+        System.out.println(sum);
 
     }
 }
